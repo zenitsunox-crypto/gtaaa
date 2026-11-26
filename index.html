@@ -3,276 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VI PortWatch</title>
+
+<title>VI PortWatch - Live Tracker</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#070812,#15102b,#080912);
-color:white;
-min-height:100vh;
-padding:20px;
+    background:
+    radial-gradient(circle at top left,#291b48 0%,transparent 35%),
+    radial-gradient(circle at right,#3b123e 0%,transparent 35%),
+    #06070d;
+
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
 }
-.container{max-width:1200px;margin:auto}
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px;
-border:1px solid #303354;
-border-radius:18px;
-background:#111426;
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:18px;
 }
-.logo{font-size:25px;font-weight:bold}
-.logo span{color:#ff3fa8}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(16,18,35,.92);
+    border:1px solid #30334f;
+    border-radius:18px;
+
+    padding:14px 18px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-circle{
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:900;
+
+    background:
+    linear-gradient(135deg,#ff3fa8,#624dff);
+
+    box-shadow:0 0 25px #ff3fa855;
+}
+
+.logo-title{
+    font-size:24px;
+    font-weight:900;
+}
+
+.logo-title span{
+    color:#ff3fa8;
+}
+
+.subtitle{
+    color:#52f2d7;
+    font-size:11px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
 .live{
-background:#ff315f;
-padding:8px 14px;
-border-radius:10px;
-font-size:12px;
-font-weight:bold;
+    background:#ff315b;
+    padding:9px 15px;
+    border-radius:9px;
+
+    font-size:12px;
+    font-weight:900;
+
+    box-shadow:0 0 20px #ff315b55;
 }
+
+/* HERO */
+
 .hero{
-margin-top:18px;
-padding:30px;
-border-radius:20px;
-background:linear-gradient(135deg,#211743,#15182f);
-border:1px solid #303354;
-}
-.small{color:#5ff5dc;font-size:12px;font-weight:bold}
-h1{font-size:48px;margin:12px 0}
-h1 span{color:#ff3fa8}
-p{color:#aeb4d0}
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin-top:25px;
-}
-.stat{
-background:#0d1020;
-border:1px solid #303354;
-border-radius:14px;
-padding:16px;
-}
-.stat b{font-size:24px;display:block}
-.stat small{color:#9097b5}
-.main{
-display:grid;
-grid-template-columns:1.5fr .8fr;
-gap:15px;
-margin-top:15px;
-}
-.panel{
-background:#0d1020;
-border:1px solid #303354;
-border-radius:18px;
-padding:18px;
-}
-.panel h2{margin-bottom:15px}
-.cards{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-.card{
-background:linear-gradient(180deg,#191c35,#0e1020);
-border:1px solid #343858;
-border-radius:15px;
-padding:16px;
-}
-.rank{color:#ffd52a;font-weight:bold;font-size:12px}
-.name{font-size:22px;font-weight:bold;margin:7px 0}
-.progress{
-height:9px;
-background:#292d48;
-border-radius:10px;
-overflow:hidden;
-margin:15px 0;
-}
-.bar{
-height:100%;
-width:60%;
-background:linear-gradient(90deg,#ff3fa8,#6c5cff);
-}
-.badge{
-display:inline-block;
-background:#1ee6c5;
-color:#061510;
-padding:5px 8px;
-border-radius:6px;
-font-size:10px;
-font-weight:bold;
-}
-.activity div{
-padding:12px 5px;
-border-bottom:1px solid #292d48;
-font-size:13px;
-}
-.activity small{color:#8d94b2}
-footer{text-align:center;color:#737a98;font-size:11px;margin-top:20px}
+    margin-top:16px;
 
-@media(max-width:800px){
-.stats{grid-template-columns:repeat(2,1fr)}
-.main{grid-template-columns:1fr}
-.cards{grid-template-columns:1fr}
-h1{font-size:34px}
-}
-</style>
-</head>
+    padding:28px;
 
-<body>
+    border-radius:20px;
 
-<div class="container">
+    border:1px solid #353752;
 
-<header>
-<div class="logo">VI <span>PortWatch</span></div>
-<div class="live">● LIVE</div>
-</header>
-
-<section class="hero">
-<div class="small">GTA 6 PC PORT RACE • LIVE TRACKER</div>
-
-<h1>WHO GETS <span>GTA 6</span><br>ON PC FIRST?</h1>
-
-<p>Community progress and PC port development tracker.</p>
-
-<div class="stats">
-<div class="stat">
-<b id="total">—</b>
-<small>Builds tracked</small>
-</div>
-
-<div class="stat">
-<b id="leader">—</b>
-<small>Current leader</small>
-</div>
-
-<div class="stat">
-<b id="update">LIVE</b>
-<small>Last update</small>
-</div>
-
-<div class="stat">
-<b>LIVE</b>
-<small>Tracker status</small>
-</div>
-</div>
-</section>
-
-<div class="main">
-
-<section class="panel">
-<h2>🏆 Top Builds</h2>
-
-<div class="cards" id="builds">
-
-<div class="card">
-<div class="rank">LOADING</div>
-<div class="name">Loading tracker...</div>
-<p>Please wait.</p>
-</div>
-
-</div>
-</section>
-
-<section class="panel">
-<h2>⚡ Latest Activity</h2>
-
-<div class="activity" id="activity">
-<div>Loading activity...</div>
-</div>
-
-</section>
-
-</div>
-
-<footer>
-Fan-made tracker interface • Not affiliated with Rockstar Games
-</footer>
-
-</div>
-
-<script>
-async function loadTracker(){
-
-try{
-
-const response = await fetch("https://portwatch-vi.xyz/tracker.json");
-
-if(!response.ok) throw new Error();
-
-const data = await response.json();
-
-const builds =
-data.builds ||
-data.projects ||
-data.items ||
-data.data ||
-[];
-
-document.getElementById("total").textContent =
-builds.length || "—";
-
-if(builds.length){
-document.getElementById("leader").textContent =
-builds[0].name ||
-builds[0].title ||
-"—";
+    background:
+    linear-gradient(
+        135deg,
+        rgba(42,23,74,.95),
+        rgba(16,19,40,.96)
+    );
 }
 
-document.getElementById("update").textContent =
-new Date().toLocaleTimeString();
-
-document.getElementById("builds").innerHTML =
-builds.slice(0,6).map((b,i)=>`
-
-<div class="card">
-
-<div class="rank">
-${i+1}${i==0?"ST":i==1?"ND":i==2?"RD":"TH"} PLACE
-</div>
-
-<div class="name">
-${b.name || b.title || "Unknown Build"}
-</div>
-
-<p>
-${b.description || b.status || "Community build"}
-</p>
-
-<div class="progress">
-<div class="bar"
-style="width:${b.progress || 60}%">
-</div>
-</div>
-
-<span class="badge">
-${b.status || "TRACKED"}
-</span>
-
-</div>
-
-`).join("");
-
-}catch(error){
-
-document.getElementById("builds").innerHTML=`
-<div class="card">
-<div class="name">Tracker unavailable</div>
-<p>Live data could not be loaded right now.</p>
-</div>
-`;
-
+.eyebrow{
+    color:#c5c9df;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
 }
 
+.hero h1{
+    font-size:clamp(35px,6vw,65px);
+    line-height:.95;
+
+    margin-top:10px;
 }
 
-loadTracker();
+.hero h1 span{
+    color:#ff3fa8;
+}
 
-setInterval(loadTracker,180000);
-</script>
-
-</body>
-</html>
+.hero-description{
+    color:#a9b0ca;
+    margin-top:14px;
+    font-size:14
