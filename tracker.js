@@ -1,71 +1,59 @@
 export default async function handler(req, res) {
 
-  try {
+    const sources = [
+        "https://portwatch-vi.xyz/data/tracker.json",
+        "https://portwatch-vi.xyz/tracker.json"
+    ];
 
-    const response = await fetch(
-      "https://portwatch-vi.xyz/tracker.json",
-      {
-        headers: {
-          "User-Agent": "VI-PortWatch"
+    for (const url of sources) {
+
+        try {
+
+            const response =
+                await fetch(
+                    url,
+                    {
+                        headers: {
+                            "User-Agent":
+                                "VI-PortWatch/1.0"
+                        },
+                        cache: "no-store"
+                    }
+                );
+
+
+            if (response.ok) {
+
+                const data =
+                    await response.json();
+
+
+                res.setHeader(
+                    "Cache-Control",
+                    "s-maxage=60, stale-while-revalidate=300"
+                );
+
+
+                return res
+                    .status(200)
+                    .json(data);
+
+            }
+
+        } catch (error) {
+
+            // Try the next source
+
         }
-      }
-    );
 
-    if (!response.ok) {
-      return res.status(response.status).json({
-        error: "Tracker unavailable"
-      });
     }
 
-    const data = await response.json();
 
-    res.setHeader(
-      "Cache-Control",
-      "s-maxage=60, stale-while-revalidate=300"
-    );
+    return res
+        .status(502)
+        .json({
+            error:
+                "Upstream PortWatch tracker unavailable"
+        });
 
-    return res.status(200).json(data);
-
-  } catch (error) {
-
-    return res.status(500).json({
-      error: "Could not load tracker"
-    });
-
-  }
-}export default async function handler(req, res) {
-
-  try {
-
-    const response = await fetch(
-      "https://portwatch-vi.xyz/tracker.json",
-      {
-        headers: {
-          "User-Agent": "gtaaa"
-        }
-      }
-    );
-
-    if (!response.ok) {
-      return res.status(response.status).json({
-        error: "Tracker unavailable"
-      });
-    }
-
-    const data = await response.json();
-
-    res.setHeader(
-      "Cache-Control",
-      "s-maxage=60, stale-while-revalidate=300"
-    );
-
-    return res.status(200).json(data);
-
-  } catch (error) {
-
-    return res.status(500).json({
-      error: "Could not load tracker"
-    });
-
-  }
 }
