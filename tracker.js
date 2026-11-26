@@ -15,7 +15,7 @@ export default async function handler(req, res) {
                     {
                         headers: {
                             "User-Agent":
-                                "VI-PortWatch/1.0"
+                                "gtaaa/1.0"
                         },
                         cache: "no-store"
                     }
