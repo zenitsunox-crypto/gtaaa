@@ -137,4 +137,986 @@ body{
 .hero-description{
     color:#a9b0ca;
     margin-top:14px;
-    font-size:14
+    font-size:14px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:10px;
+
+    margin-top:22px;
+}
+
+.stat{
+    background:rgba(5,8,18,.75);
+
+    border:1px solid #30334e;
+
+    border-radius:13px;
+
+    padding:14px;
+}
+
+.stat-value{
+    font-size:24px;
+    font-weight:900;
+}
+
+.stat-label{
+    display:block;
+
+    margin-top:4px;
+
+    color:#858ca9;
+
+    font-size:9px;
+
+    font-weight:bold;
+}
+
+/* MAIN */
+
+.main{
+    display:grid;
+
+    grid-template-columns:
+    1.45fr .75fr;
+
+    gap:15px;
+
+    margin-top:15px;
+}
+
+.panel{
+    background:rgba(11,14,29,.94);
+
+    border:1px solid #30334f;
+
+    border-radius:18px;
+
+    padding:16px;
+}
+
+.panel-title{
+    font-size:18px;
+    margin-bottom:14px;
+}
+
+/* BUILD CARDS */
+
+.builds{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:11px;
+}
+
+.build{
+    min-height:230px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #181b35,
+        #0d1020
+    );
+
+    border:1px solid #363958;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    position:relative;
+}
+
+.rank{
+    color:#ffd52a;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.build-name{
+    font-size:21px;
+
+    font-weight:900;
+
+    margin-top:6px;
+}
+
+.build-info{
+    color:#9da4c0;
+
+    font-size:10px;
+
+    margin-top:7px;
+
+    min-height:30px;
+}
+
+.fps{
+    font-size:27px;
+
+    font-weight:900;
+
+    margin-top:12px;
+}
+
+.badge{
+    display:inline-block;
+
+    background:#ffd52a;
+
+    color:#151208;
+
+    padding:4px 7px;
+
+    border-radius:6px;
+
+    font-size:9px;
+
+    font-weight:900;
+}
+
+.checks{
+    display:grid;
+
+    gap:4px;
+
+    margin-top:10px;
+
+    color:#b9bfd6;
+
+    font-size:10px;
+}
+
+.checks div::before{
+    content:"✓";
+
+    color:#37ef7c;
+
+    font-weight:900;
+
+    margin-right:6px;
+}
+
+/* ACTIVITY */
+
+.activity{
+    max-height:600px;
+
+    overflow:auto;
+}
+
+.activity-item{
+    padding:11px 3px;
+
+    border-bottom:1px solid #292d48;
+}
+
+.activity-item:last-child{
+    border-bottom:0;
+}
+
+.activity-badge{
+    display:inline-block;
+
+    background:#20e6c4;
+
+    color:#061510;
+
+    border-radius:5px;
+
+    padding:3px 6px;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    margin-right:5px;
+}
+
+.activity-title{
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+.activity-time{
+    display:block;
+
+    color:#858ca7;
+
+    font-size:9px;
+
+    margin-top:4px;
+}
+
+/* NOTE */
+
+.note{
+    margin-top:15px;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #5c1c91,
+        #a923c4
+    );
+}
+
+.note-title{
+    font-size:17px;
+
+    font-weight:900;
+}
+
+.note-text{
+    color:#eee;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+
+    color:#737b98;
+
+    font-size:10px;
+
+    padding:20px 5px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:9px;
+    }
+
+    .builds{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:20px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="logo">
+
+<div class="logo-circle">
+VI
+</div>
+
+<div>
+
+<div class="logo-title">
+VI <span>PortWatch</span>
+</div>
+
+<div class="subtitle">
+GTA 6 PC PORT RACE • LIVE TRACKER 24/7
+</div>
+
+</div>
+
+</div>
+
+<div class="live">
+● LIVE
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="eyebrow">
+TOP BUILDS • RANKED LIVE • AUTO REFRESH
+</div>
+
+<h1>
+WHO GETS <span>GTA 6</span><br>
+ON PC FIRST?
+</h1>
+
+<p class="hero-description">
+Live community progress, project status and latest tracker activity.
+</p>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-value" id="totalBuilds">
+—
+</div>
+
+<span class="stat-label">
+BUILDS TRACKED
+</span>
+</div>
+
+
+<div class="stat">
+<div class="stat-value" id="leader">
+—
+</div>
+
+<span class="stat-label">
+CURRENT LEADER
+</span>
+</div>
+
+
+<div class="stat">
+<div class="stat-value" id="progress">
+—
+</div>
+
+<span class="stat-label">
+OVERALL PROGRESS
+</span>
+</div>
+
+
+<div class="stat">
+<div class="stat-value" id="lastUpdate">
+—
+</div>
+
+<span class="stat-label">
+LAST CHECKED
+</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+
+<!-- BUILDS -->
+
+<section class="panel">
+
+<h2 class="panel-title">
+🏆 Top Builds
+</h2>
+
+<div id="builds" class="builds">
+
+<div class="build">
+<div class="rank">
+LOADING
+</div>
+
+<div class="build-name">
+Loading tracker...
+</div>
+
+<div class="build-info">
+Fetching live data...
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ACTIVITY -->
+
+<aside class="panel">
+
+<h2 class="panel-title">
+⚡ Latest Activity
+</h2>
+
+<div id="activity" class="activity">
+
+<div class="activity-item">
+Loading latest activity...
+</div>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-title">
+WHY IS THE CITY MISSING?
+</div>
+
+<div class="note-text">
+Shaders and graphics systems still need major PC-side work before a full PC port is considered ready.
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+
+<footer class="footer">
+
+Fan-made tracker interface • Not affiliated with Rockstar Games, Take-Two or Microsoft
+
+</footer>
+
+</div>
+
+
+<script>
+
+/*
+========================================
+LIVE TRACKER
+========================================
+*/
+
+async function loadTracker(){
+
+    try{
+
+        /*
+        Vercel API endpoint
+        */
+
+        const response =
+        await fetch(
+            "/api/tracker",
+            {
+                cache:"no-store"
+            }
+        );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Tracker API error"
+            );
+
+        }
+
+
+        const data =
+        await response.json();
+
+
+        renderTracker(data);
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        document.getElementById(
+            "builds"
+        ).innerHTML = `
+
+        <div class="build">
+
+            <div class="rank">
+            OFFLINE
+            </div>
+
+            <div class="build-name">
+            Tracker unavailable
+            </div>
+
+            <div class="build-info">
+            Live tracker data could not
+            be loaded right now.
+            </div>
+
+        </div>
+
+        `;
+
+
+        document.getElementById(
+            "activity"
+        ).innerHTML = `
+
+        <div class="activity-item">
+        Live activity unavailable right now.
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/*
+========================================
+HELPER
+========================================
+*/
+
+function getValue(
+    object,
+    keys,
+    fallback="—"
+){
+
+    for(
+        const key of keys
+    ){
+
+        if(
+            object &&
+            object[key] !== undefined &&
+            object[key] !== null &&
+            object[key] !== ""
+        ){
+
+            return object[key];
+
+        }
+
+    }
+
+    return fallback;
+
+}
+
+
+/*
+========================================
+RENDER TRACKER
+========================================
+*/
+
+function renderTracker(data){
+
+    /*
+    Try multiple possible data structures
+    */
+
+    let builds =
+        data.builds ||
+        data.projects ||
+        data.leaderboard ||
+        data.efforts ||
+        data.items ||
+        [];
+
+
+    let activity =
+        data.news ||
+        data.activity ||
+        data.latestActivity ||
+        data.events ||
+        [];
+
+
+    /*
+    Statistics
+    */
+
+    document.getElementById(
+        "totalBuilds"
+    ).textContent =
+        getValue(
+            data,
+            [
+                "total",
+                "tracked",
+                "effortsTracked"
+            ],
+            builds.length
+        );
+
+
+    if(builds.length){
+
+        document.getElementById(
+            "leader"
+        ).textContent =
+            getValue(
+                builds[0],
+                [
+                    "name",
+                    "title",
+                    "project",
+                    "author"
+                ]
+            );
+
+    }
+
+
+    document.getElementById(
+        "progress"
+    ).textContent =
+        getValue(
+            data,
+            [
+                "overallProgress",
+                "progress"
+            ],
+            "LIVE"
+        );
+
+
+    document.getElementById(
+        "lastUpdate"
+    ).textContent =
+        getValue(
+            data,
+            [
+                "updated",
+                "lastChecked",
+                "updatedAt"
+            ],
+            new Date().toLocaleTimeString()
+        );
+
+
+    /*
+    BUILD CARDS
+    */
+
+    const buildsHTML =
+        builds
+        .slice(0,4)
+        .map(
+
+            function(build,index){
+
+                const name =
+                    getValue(
+                        build,
+                        [
+                            "name",
+                            "title",
+                            "project",
+                            "author"
+                        ],
+                        "Unknown Build"
+                    );
+
+
+                const description =
+                    getValue(
+                        build,
+                        [
+                            "description",
+                            "summary",
+                            "status",
+                            "repo"
+                        ],
+                        "Community build"
+                    );
+
+
+                const score =
+                    getValue(
+                        build,
+                        [
+                            "fps",
+                            "score",
+                            "progress"
+                        ],
+                        "—"
+                    );
+
+
+                return `
+
+                <article class="build">
+
+                    <div class="rank">
+
+                    ${index+1}
+                    ${index===0?"ST":
+                      index===1?"ND":
+                      index===2?"RD":"TH"}
+                    PLACE
+
+                    </div>
+
+
+                    <div class="build-name">
+
+                    ${escapeHTML(name)}
+
+                    </div>
+
+
+                    <div class="build-info">
+
+                    ${escapeHTML(description)}
+
+                    </div>
+
+
+                    <div class="fps">
+
+                    ${escapeHTML(score)}
+
+                    <span class="badge">
+                    PORTWATCH
+                    </span>
+
+                    </div>
+
+
+                    <div class="checks">
+
+                        <div>
+                        Loads
+                        </div>
+
+                        <div>
+                        Boots
+                        </div>
+
+                        <div>
+                        Menus
+                        </div>
+
+                        <div>
+                        In-game
+                        </div>
+
+                        <div>
+                        Lighting
+                        </div>
+
+                        <div>
+                        Progress tracked
+                        </div>
+
+                    </div>
+
+                </article>
+
+                `;
+
+            }
+
+        )
+        .join("");
+
+
+    document.getElementById(
+        "builds"
+    ).innerHTML =
+        buildsHTML ||
+        `
+
+        <div class="build">
+
+        <div class="build-name">
+        No leaderboard data
+        </div>
+
+        </div>
+
+        `;
+
+
+    /*
+    LATEST ACTIVITY
+    */
+
+    const activityHTML =
+        activity
+        .slice(0,12)
+        .map(
+
+            function(item){
+
+                const title =
+                    getValue(
+                        item,
+                        [
+                            "title",
+                            "name",
+                            "headline",
+                            "message"
+                        ],
+                        "Tracker update"
+                    );
+
+
+                const time =
+                    getValue(
+                        item,
+                        [
+                            "time",
+                            "date",
+                            "timestamp",
+                            "updated"
+                        ],
+                        "recent"
+                    );
+
+
+                const type =
+                    getValue(
+                        item,
+                        [
+                            "type",
+                            "label"
+                        ],
+                        "UPDATED"
+                    );
+
+
+                return `
+
+                <div class="activity-item">
+
+                    <span class="activity-badge">
+
+                    ${escapeHTML(type)}
+
+                    </span>
+
+
+                    <span class="activity-title">
+
+                    ${escapeHTML(title)}
+
+                    </span>
+
+
+                    <span class="activity-time">
+
+                    ${escapeHTML(time)}
+
+                    </span>
+
+                </div>
+
+                `;
+
+            }
+
+        )
+        .join("");
+
+
+    document.getElementById(
+        "activity"
+    ).innerHTML =
+        activityHTML ||
+
+        `
+
+        <div class="activity-item">
+
+        No latest activity available.
+
+        </div>
+
+        `;
+
+}
+
+
+/*
+========================================
+SECURITY
+========================================
+*/
+
+function escapeHTML(value){
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/*
+========================================
+START
+========================================
+*/
+
+loadTracker();
+
+
+/*
+Refresh every 3 minutes
+*/
+
+setInterval(
+    loadTracker,
+    180000
+);
+
+</script>
+
+</body>
+</html>
